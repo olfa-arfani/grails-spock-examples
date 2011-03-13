@@ -142,5 +142,3 @@ class GuttenbergServiceIntegrationSpec extends IntegrationSpec {
 
 Find more examples here:
   * [https://code.google.com/p/grails-spock-examples/source/browse/trunk/grails-geb-spock/test/integration/grails/geb/spock/GuttenbergServiceIntegrationSpec.groovy GuttenbergServiceIntegrationSpec]
-
-  * Testing services
