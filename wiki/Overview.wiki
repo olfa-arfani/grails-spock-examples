@@ -1,5 +1,7 @@
 #summary Overview of all examples.
 
+<wiki:toc />
+
 = Introduction =
 This project contains examples how to test a grails example with Spock.
 
