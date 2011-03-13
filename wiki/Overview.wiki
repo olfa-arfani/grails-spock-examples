@@ -105,10 +105,40 @@ def "when creating a new thesis author is assigned to thesis"() {
 }}}
 
 Find more examples here:
-[https://code.google.com/p/grails-spock-examples/source/browse/trunk/grails-geb-spock/test/unit/grails/geb/spock/service/GuttenbergServiceSpec.groovy GuttenbergServiceSpec]
+  * [https://code.google.com/p/grails-spock-examples/source/browse/trunk/grails-geb-spock/test/unit/grails/geb/spock/service/GuttenbergServiceSpec.groovy GuttenbergServiceSpec]
 
 == Testing controllers ==
 
 = Integration tests = 
+
+== Testing services ==
+
+Example:
+
+{{{
+
+class GuttenbergServiceIntegrationSpec extends IntegrationSpec {
+
+  def guttenbergService
+
+  def "Create thesis for first author in DB"() {
+
+    when:
+    def thesis = guttenbergService.createThesis(authorId)
+
+    then:
+    thesis != null
+    Book.countByAuthor(author) == 2
+
+    where:
+    authorId = 1L
+    author = Author.get(authorId)
+  }
+}
+
+}}}
+
+Find more examples here:
+  * [https://code.google.com/p/grails-spock-examples/source/browse/trunk/grails-geb-spock/test/integration/grails/geb/spock/GuttenbergServiceIntegrationSpec.groovy GuttenbergServiceIntegrationSpec]
 
   * Testing services
