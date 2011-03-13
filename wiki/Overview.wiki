@@ -73,6 +73,39 @@ Find more examples here:
 
 
 ==Testing services == 
+Example:
+
+{{{
+def "when creating a new thesis author is assigned to thesis"() {
+    //2. Setup mocks
+    setup:
+    //Enable logging for GuttenbergService
+    mockLogging(GuttenbergService, true)
+    //Create GuttenbergServce
+    def guttenbergService = new GuttenbergService()
+    //Use the author object created in the "where" statement to create mocked domain objects.
+    //In this step, the author instance get's the ID assigned
+    mockDomain(Author, [authorInstance])
+    //Mock domain class book (required by the guttenberg service)
+    mockDomain(Book)
+
+    //3. Call the method to test
+    when:
+    def thesis = guttenbergService.createThesis(authorInstance.id)
+
+    then:
+    //4. Make asserts on the result
+    thesis != null
+    thesis.author.id == authorInstance.id
+
+    //1. Create a dummy author instance used for the test. This instance has NO id yet
+    where:
+    authorInstance = new Author(firstname: "John", lastname: "Doe")
+  }
+}}}
+
+Find more examples here:
+[https://code.google.com/p/grails-spock-examples/source/browse/trunk/grails-geb-spock/test/unit/grails/geb/spock/service/GuttenbergServiceSpec.groovy GuttenbergServiceSpec]
 
 == Testing controllers ==
 
