@@ -6,8 +6,8 @@ This project contains examples how to test a grails example with Spock.
 Here's the current setup:
 
 == Domain classes ==
-  * [https://code.google.com/p/grails-spock-examples/source/browse/trunk/grails-geb-spock/grails-app/domain/grails/geb/spock/Author.groovy Author]
-  * [https://code.google.com/p/grails-spock-examples/source/browse/trunk/grails-geb-spock/grails-app/domain/grails/geb/spock/Book.groovy Book]
+  * [https://code.google.com/p/grails-spock-examples/source/browse/trunk/grails-geb-spock/grails-app/domain/grails/geb/spock/Author.groovy Author]: Consists of a firstname, a lastname and a list of books
+  * [https://code.google.com/p/grails-spock-examples/source/browse/trunk/grails-geb-spock/grails-app/domain/grails/geb/spock/Book.groovy Book]: Consists of a title and an author
 
 == Services ==
 
