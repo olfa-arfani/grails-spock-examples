@@ -112,8 +112,10 @@ Find more examples here:
 = Integration tests = 
 
 == Testing services ==
+Take a look at the [https://code.google.com/p/grails-spock-examples/source/browse/trunk/grails-geb-spock/grails-app/conf/BootStrap.groovy BootStrap] what objects are created in the DB before the the integration tests are started
 
-Example:
+
+Example for an integration test with Spock:
 
 {{{
 
