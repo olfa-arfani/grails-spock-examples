@@ -20,13 +20,56 @@ Examples how to test your code with mocks and Spock
 == Unit tests for domain classes ==
 
 === Testing dynamic finders ===
+e.g. test if you can find an author by it's firstname and lastname after creating a new instance
 
-  *  [https://code.google.com/p/grails-spock-examples/source/browse/trunk/grails-geb-spock/test/unit/grails/geb/spock/domain/AuthorSpec.groovy AuthorSpec]
-    * Test: {{{"find author by firstname and lastname"}}}
+{{{
+def "find author by firstname and lastname"() {
+          setup:
+          mockDomain(Author)
+
+          when:
+          new Author(firstname: firstname,lastname:lastname).save()
+
+          then:
+          Author.findByFirstnameAndLastname(firstname,lastname) != null
+
+          where:
+          firstname = "John"
+          lastname = "Doe"
+   }
+}}}
+
+Find more examples here:
+
+  * [https://code.google.com/p/grails-spock-examples/source/browse/trunk/grails-geb-spock/test/unit/grails/geb/spock/domain/AuthorSpec.groovy AuthorSpec]
+  * [https://code.google.com/p/grails-spock-examples/source/browse/trunk/grails-geb-spock/test/unit/grails/geb/spock/domain/BookSpec.groovy BookSpec]
+
 
 === Testing constraints ===
+e.g. test if it possible to create a new author with a firstname with more than 20 characters
+
+{{{
+def "firstname not longer than 20 characters"() {
+          setup:
+          mockForConstraintsTests(Author)
+
+          when:
+          def author =new Author(firstname: firstname,lastname:lastname)
+          author.validate()
+
+          then:
+          author.hasErrors()
+
+          where:
+          firstname = "123456789012345678901"
+          lastname = "Doe"
+   }
+}}}
+
+Find more examples here:
+
   * [https://code.google.com/p/grails-spock-examples/source/browse/trunk/grails-geb-spock/test/unit/grails/geb/spock/domain/AuthorSpec.groovy AuthorSpec]
-    * Test: {{{"firstname not longer than 20 characters"}}}
+  * [https://code.google.com/p/grails-spock-examples/source/browse/trunk/grails-geb-spock/test/unit/grails/geb/spock/domain/BookSpec.groovy BookSpec]
 
 
 ==Testing services == 
