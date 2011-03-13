@@ -108,6 +108,8 @@ Find more examples here:
   * [https://code.google.com/p/grails-spock-examples/source/browse/trunk/grails-geb-spock/test/unit/grails/geb/spock/service/GuttenbergServiceSpec.groovy GuttenbergServiceSpec]
 
 == Testing controllers ==
+The controller under test in the following examples was created by using the {{{grails generate-controller}}} command for the domain class [https://code.google.com/p/grails-spock-examples/source/browse/trunk/grails-geb-spock/grails-app/domain/grails/geb/spock/Author.groovy Author]
+
 
 = Integration tests = 
 
