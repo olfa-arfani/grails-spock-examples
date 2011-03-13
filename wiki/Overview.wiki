@@ -17,6 +17,15 @@ Here's the current setup:
 = Mocked unit tests =
 Examples how to test your code with mocks and Spock
 
+== Unit tests for domain classes ==
+
+=== Author ===
+[https://code.google.com/p/grails-spock-examples/source/browse/trunk/grails-geb-spock/test/unit/grails/geb/spock/domain/AuthorSpec.groovy Source code]
+
+|| Purpose || Tests ||
+||Testing dynamic finders || "find author by firstname and lastname" ||
+||Testing constraints || "firstname not longer than 20 characters"<br/> "lastname not longer than 20 characters" ||
+
 == Testing domain classes == 
 
 
