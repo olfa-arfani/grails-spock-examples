@@ -48,24 +48,28 @@ Find more examples here:
 
 
 === Testing constraints ===
-e.g. test if it possible to create a new author with a firstname with more than 20 characters
+e.g. test constraints (blank:false,maxSize:20) of attribute firstname
 
 {{{
-def "firstname not longer than 20 characters"() {
-          setup:
-          mockForConstraintsTests(Author)
+def "firstname constraints"() {
+    setup:
+    mockForConstraintsTests(Author)
 
-          when:
-          def author =new Author(firstname: firstname,lastname:lastname)
-          author.validate()
+    when:
+    def author = new Author(firstname: firstname, lastname: "Doe")
+    author.validate()
 
-          then:
-          author.hasErrors()
+    then:
+    author.hasErrors() == !valid
 
-          where:
-          firstname = "123456789012345678901"
-          lastname = "Doe"
-   }
+    where:
+
+    firstname | valid
+    "123456789012345678901" | false //Firstname must not have more than 20 characters 
+    "12345678901234567890" | true
+    "" | false //Firstname must not be blank
+
+  }
 }}}
 
 Find more examples here:
