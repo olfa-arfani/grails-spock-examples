@@ -1,6 +1,9 @@
 #summary Overview of all examples.
 #labels Featured
 
+= This Repository is outdated.=
+Code and descriptions can now be found on  [https://github.com/pschneider-manzell/grails-spock-examples GitHub]
+
 <wiki:toc />
 
 = Introduction =
